@@ -77,16 +77,21 @@ const LibroModal: React.FC<LibroModalProps> = ({ open, initialData, onClose, onS
   };
 
   const handleDateChange = (newDate: dayjs.Dayjs | null) => {
-    if (!newDate || !(newDate instanceof dayjs)) {
-      setFechaPublicacion(null);
-      setFormData((prev) => ({ ...prev, fecha_publicacion: "" }));
-      return;
-    }
-  
-    const formattedDate = newDate.format("YYYY-MM-DD");
-    setFechaPublicacion(newDate);
-    setFormData((prev) => ({ ...prev, fecha_publicacion: formattedDate }));
-  };
+      if (!newDate || !(newDate instanceof dayjs)) {
+        setFechaPublicacion(null);
+        setFormData((prev) => ({ ...prev, aniopublicacion_libro: "" })); 
+        return;
+      }
+    
+      const formattedDate = newDate.format("YYYY-MM-DD");
+      console.log(
+        "Fecha seleccionada:", formattedDate, 
+        "| Tipo:", typeof formattedDate
+      );
+    
+      setFechaPublicacion(newDate);
+      setFormData((prev) => ({ ...prev, aniopublicacion_libro: formattedDate })); 
+    };
   
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -94,6 +99,8 @@ const LibroModal: React.FC<LibroModalProps> = ({ open, initialData, onClose, onS
     setLoading(true);
     setError(null);
     setSuccess(null);
+    console.log("Datos enviados al backend:", formData);
+
     try {
       if (initialData && formData.id_libro) {
         // Modo edición: llamamos al servicio de actualización.

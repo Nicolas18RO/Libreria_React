@@ -12,6 +12,10 @@ import {
 } from '@mui/material';
 import { Miembro } from '../types/types';
 import { createMiembro, updateMiembro } from '../services/services';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import dayjs from 'dayjs';
 
 interface MiembroModalProps {
   open: boolean;
@@ -54,6 +58,25 @@ const MiembroModal: React.FC<MiembroModalProps> = ({ open, initialData, onClose,
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
+  const [fechamembresia, setFechaMiembro] = React.useState(initialData?.fechamembresia ? dayjs(initialData.fechamembresia) : null);
+  
+  const handleDateChange = (newDate: dayjs.Dayjs | null) => {
+    if (!newDate || !(newDate instanceof dayjs)) {
+      setFechaMiembro(null);
+      setFormData((prev) => ({ ...prev, fechamembresia: "" })); // Cambio aquí
+      return;
+    }
+  
+    const formattedDate = newDate.format("YYYY-MM-DD");
+    console.log(
+      "Fecha seleccionada:", formattedDate, 
+      "| Tipo:", typeof formattedDate
+    );
+  
+    setFechaMiembro(newDate);
+    setFormData((prev) => ({ ...prev, fechamembresia: formattedDate })); // Cambio aquí
+  };
+  
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -127,15 +150,14 @@ const MiembroModal: React.FC<MiembroModalProps> = ({ open, initialData, onClose,
             required
             sx={{ mb: 2 }}
           />
-          <TextField
-            label="Fecha Membresia (YYYY-MM-DAY)"
-            name="fechamembresia"
-            value={formData.fechamembresia}
-            onChange={handleChange}
-            fullWidth
-            required
-            sx={{ mb: 2 }}
-          />
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DatePicker
+              label="Fecha de Publicación"
+              value={fechamembresia}
+              onChange={handleDateChange}
+              slotProps={{ textField: { fullWidth: true, sx: { mb: 2 } } }} // Nueva forma de personalizar el TextField
+            />
+          </LocalizationProvider>
           
           <DialogActions>
             <Button onClick={onClose} color="secondary">

@@ -7,6 +7,7 @@ import GroupIcon from "@mui/icons-material/Group";
 import HomeIcon from "@mui/icons-material/Home";
 import MenuIcon from "@mui/icons-material/Menu";  // ✅ Fixed missing import
 import { useNavigate } from 'react-router-dom';
+import { Savings } from '@mui/icons-material';
 
 export default function SideBar() {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ export default function SideBar() {
     { Text: 'Editorial', Icon: <MenuBookIcon />, path: "/editorial" },
     { Text: 'Libro', Icon: <BusinessIcon />, path: "/libro" },
     { Text: 'Miembro', Icon: <GroupIcon />, path: "/miembro" },
+    { Text: 'Prestamo', Icon: <Savings/>, path: "/prestamo" },
   ];
 
   const toggleDrawer = (newOpen: boolean) => () => {

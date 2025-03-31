@@ -6,6 +6,7 @@ import LibroScreen from "./commons/Libro/Screen/LibroScreen";
 import MiembroScreen from "./commons/Miembro/Screen/MiembroScreen";
 import NotFoundPage from "./pages/NotFound";
 import SideBar from "./components/SideBar";
+import PrestamoScreen from "./commons/Prestamo/Screen/PrestamoScreen";
 
 
 
@@ -18,7 +19,8 @@ function App() {
         <Route path="/autor"element={<AutorScreen/>} />
         <Route path="/editorial"element={<EditorialScreen/>} />
         <Route path="/libro"element={<LibroScreen/>} />
-        <Route path="/miembro"element={<MiembroScreen/>} />
+        <Route path="/miembro"element={<MiembroScreen/>} /> 
+        <Route path="/prestamo"element={<PrestamoScreen/>} /> 
         <Route path="*"element={<NotFoundPage/>} />      
       </Routes>
     </Router>
