@@ -41,6 +41,6 @@ Este proyecto es una librería que permite realizar operaciones CRUD (Crear, Lee
    ```
 
 ## Autor
-- NicolasRO18
+- Nicolas18RO
 
 
