@@ -19,7 +19,7 @@ Este proyecto es una librería que permite realizar operaciones CRUD (Crear, Lee
 1. Clona este repositorio el cual es el backend:
    https://github.com/Rcastellanos5/Api_Libreria
    
-3. Instala las dependencias necesarias:
+2. Instala las dependencias necesarias:
   - **@date-io/date-fns** (^3.2.1) - Soporte para `date-fns` en Material UI.
   - **@date-io/dayjs** (^3.2.0) - Soporte para `dayjs` en Material UI.
   - **@emotion/react** (^11.14.0) - Librería para estilos en React.
@@ -35,7 +35,7 @@ Este proyecto es una librería que permite realizar operaciones CRUD (Crear, Lee
   - **react** (^19.0.0) - Biblioteca principal de React.
   - **react-dom** (^19.0.0) - Librería para renderizar componentes en el DOM.
   - **react-router-dom** (^7.4.0) - Manejo de rutas en React.
-  5. Inicia el servidor:
+3. Inicia el servidor:
    ```sh
    Para iniciar el servidor se usa: npm run dev 
    ```
