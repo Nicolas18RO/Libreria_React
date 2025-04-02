@@ -1,54 +1,46 @@
-# React + TypeScript + Vite
+# Biblioteca CRUD
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una librería que permite realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) para gestionar una biblioteca. Permite administrar autores, libros, editoriales, miembros y préstamos.
 
-Currently, two official plugins are available:
+## Características
+- Gestión de **autores**: Registrar, actualizar y eliminar información de los autores.
+- Gestión de **libros**: Agregar nuevos libros, actualizar información y eliminar registros.
+- Gestión de **editoriales**: Administrar editoriales de los libros.
+- Gestión de **miembros**: Registrar, eliminar y actualizar información de los miembros de la biblioteca.
+- Gestión de **préstamos**: Control de préstamos y devoluciones de libros.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologías utilizadas
+- **Lenguaje:** React
+- **Base de datos:** PostgreSQL
+- **Backend:** Python
+- **Frontend:** TypeScript
 
-## Expanding the ESLint configuration
+## Instalación y configuración
+1. Clona este repositorio el cual es el backend:
+   https://github.com/Rcastellanos5/Api_Libreria
+   
+3. Instala las dependencias necesarias:
+  - **@date-io/date-fns** (^3.2.1) - Soporte para `date-fns` en Material UI.
+  - **@date-io/dayjs** (^3.2.0) - Soporte para `dayjs` en Material UI.
+  - **@emotion/react** (^11.14.0) - Librería para estilos en React.
+  - **@emotion/styled** (^11.14.0) - Sistema de estilos para React.
+  - **@mui/icons-material** (^6.4.8) - Conjunto de iconos de Material UI.
+  - **@mui/material** (^6.4.9) - Biblioteca de componentes de Material UI.
+  - **@mui/x-data-grid** (^7.28.1) - Componente de tabla de datos de Material UI.
+  - **@mui/x-date-pickers** (^7.28.2) - Componentes de selección de fecha/hora de Material UI.
+  - **@mui/x-date-pickers-pro** (^7.28.2) - Versión profesional de los date pickers de MUI.
+  - **axios** (^1.8.4) - Cliente HTTP para realizar peticiones a APIs.
+  - **date-fns** (^4.1.0) - Librería para manipulación de fechas en JavaScript.
+  - **dayjs** (^1.11.13) - Alternativa liviana a Moment.js para manejar fechas.
+  - **react** (^19.0.0) - Biblioteca principal de React.
+  - **react-dom** (^19.0.0) - Librería para renderizar componentes en el DOM.
+  - **react-router-dom** (^7.4.0) - Manejo de rutas en React.
+  5. Inicia el servidor:
+   ```sh
+   Para iniciar el servidor se usa: npm run dev 
+   ```
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Autor
+- **Nombre del Autor** - NicolasRO18
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
